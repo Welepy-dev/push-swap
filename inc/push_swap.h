@@ -10,3 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include <stdlib.h>
+
+typedef struct s_stack
+{
+	int	*array;
+}	t_stack;
+
+typedef struct s_ps
+{
+	t_stack	a;
+	t_stack	b;
+}	t_ps;
+
+#endif // !PUSH_SWAP_HPP
