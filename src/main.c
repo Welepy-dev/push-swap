@@ -6,7 +6,7 @@
 /*   By: marcsilv <marcsilv@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:58 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/12 12:19:01 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/12 19:34:00 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,12 @@
 
 int	main(int ac, char **av)
 {
-	t_stack	a;
+	t_ps	stacks;
 
+	if (ac != 1)
+	{
+		if (!check_args(av))
+			print_error("\0", NULL);
+	}
 	return (0);
 }
