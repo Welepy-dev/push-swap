@@ -6,7 +6,7 @@
 /*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 16:07:18 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 17:23:45 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,22 @@ char	**check_args(char **av)
 
 t_ps	*fill_stacks(char **nums)
 {
-	if (!nums)
-		return NULL;
+	t_ps	*ps;
 
-	t_ps *ps = malloc(sizeof(t_ps));
-	if (!ps)
-		return NULL;
-
+	ps = (t_ps *)safe_malloc(sizeof(t_ps));
+	ps->a = (t_stack *)safe_malloc(sizeof(t_stack));
+	ps->b = (t_stack *)safe_malloc(sizeof(t_stack));
+	if (!ps || !nums)
+		return (NULL);
 	ps->size = matrix_len(nums);
-	ps->a.array = ft_calloc(ps->size, sizeof(int));
-	ps->b.array = ft_calloc(ps->size, sizeof(int));
-
+	ps->a->array = ft_calloc(ps->size, sizeof(int));
+	ps->b->array = ft_calloc(ps->size, sizeof(int));
+	ps->a->id = 'A';
+	ps->b->id = 'B';
+	ps->a->top = ps->size - 1;
+	ps->b->top = -1;
 	for (int i = 0; i < ps->size; i++)
-		ps->a.array[i] = ft_atoi(nums[i]);
-
+		ps->a->array[i] = ft_atoi(nums[i]);
 	free_matrix(nums);
 	return ps;
 }
