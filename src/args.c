@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 11:46:23 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/13 16:07:18 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stdlib.h>
 
 char	*get_all_args(char **av)
 {
@@ -34,6 +33,13 @@ char	*get_all_args(char **av)
 	return (divided_nums);
 }
 
+char	**free_stuff(char **nums, char *divided_nums)
+{
+	free_matrix(nums);
+	ft_free(&divided_nums);
+	return (NULL);
+}
+
 char	**check_args(char **av)
 {
 	char	*divided_nums;
@@ -42,18 +48,18 @@ char	**check_args(char **av)
 
 	divided_nums = get_all_args(av);
 	nums = ft_split(divided_nums, ' ');
-	ft_bzero((int *)arr, 3);
+	ft_bzero((int *)arr, sizeof(arr));
 	arr[1] = matrix_len(nums);
 	while (arr[0] < arr[1])
 	{
-		if (ft_strspn(nums[arr[0]], "0123456789") != ft_strlen(nums[arr[0]]))
-			free_matrix(nums);
-		if (ft_atoi(nums[arr[0]]) > INT_MAX || ft_atoi(nums[arr[0]]) < INT_MIN)
-			free_matrix(nums);
 		arr[2] = arr[0];
 		while (++arr[2] < arr[1])
 			if (!ft_strcmp(nums[arr[0]], nums[arr[2]]))
-				free_matrix(nums);
+				return (free_stuff(nums, divided_nums));
+		if (ft_strspn(nums[arr[0]], "0123456789") != ft_strlen(nums[arr[0]]))
+			return (free_stuff(nums, divided_nums));
+		if (ft_atoi(nums[arr[0]]) > INT_MAX || ft_atoi(nums[arr[0]]) < INT_MIN)
+			return (free_stuff(nums, divided_nums));
 		arr[0]++;
 	}
 	ft_free(&divided_nums);
@@ -62,21 +68,21 @@ char	**check_args(char **av)
 
 t_ps	*fill_stacks(char **nums)
 {
-	t_ps	*ps;
-	int		i;
-
 	if (!nums)
-		return (NULL);
-	i = matrix_len(nums);
-	ft_printf("%d\n", i);
-	ps = (t_ps *)malloc(sizeof(t_ps));
-	ps->a.array = (int *)ft_calloc(i, sizeof(int));
-	ps->b.array = (int *)ft_calloc(i, sizeof(int));
-	/*while (i >= 0)
-	{
+		return NULL;
+
+	t_ps *ps = malloc(sizeof(t_ps));
+	if (!ps)
+		return NULL;
+
+	ps->size = matrix_len(nums);
+	ps->a.array = ft_calloc(ps->size, sizeof(int));
+	ps->b.array = ft_calloc(ps->size, sizeof(int));
+
+	for (int i = 0; i < ps->size; i++)
 		ps->a.array[i] = ft_atoi(nums[i]);
-		i--;
-	}*/
-	return (ps);
+
+	free_matrix(nums);
+	return ps;
 }
 

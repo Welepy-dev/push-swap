@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:56 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 11:42:39 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/13 15:35:22 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_ps
 {
 	t_stack	a;
 	t_stack	b;
+	int		size;
 }	t_ps;
 
 t_ps	*fill_stacks(char **nums);

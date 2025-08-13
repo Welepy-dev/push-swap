@@ -19,7 +19,7 @@ LIBFT = ./libft
 LFT = $(LIBFT)/libft.a
 
 CXXFLAGS = -Wall -Wextra -Werror
-OBJS = ./src/main.o ./src/args.o
+OBJS = ./src/main.o ./src/args.o ./src/moves/swap.c
 HEADERS = ./inc/push_swap.h 
 all: $(NAME)
 $(OBJS): $(HEADERS)
