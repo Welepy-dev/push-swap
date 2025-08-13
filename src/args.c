@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 21:55:43 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/13 22:58:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,12 @@ t_ps	*fill_stacks(char **nums)
 	t_ps	*ps;
 	int		i;
 
+	if (!nums)
+		return (NULL);
 	ps = (t_ps *)safe_malloc(sizeof(t_ps));
 	ps->a = (t_stack *)safe_malloc(sizeof(t_stack));
 	ps->b = (t_stack *)safe_malloc(sizeof(t_stack));
-	if (!ps || !nums || !ps->a || !ps->b)
+	if (!ps || !ps->a || !ps->b)
 		return (NULL);
 	ps->size = matrix_len(nums);
 	ps->b->size = ps->size;
@@ -88,7 +90,6 @@ t_ps	*fill_stacks(char **nums)
 	i = ps->size - 1;
 	while (i >= 0)
 		ps->a->array[++ps->a->top] = ft_atoi(nums[i--]);
-
 	free_matrix(nums);
 	return (ps);
 }

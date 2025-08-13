@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:36:53 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 22:24:58 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/13 22:59:50 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	is_empty(t_stack *stack)
 bool is_sorted(t_stack *stack)
 {
     for (int i = stack->top; i > 0; i--)
-        if (stack->array[i] < stack->array[i - 1])
+        if (stack->array[i] > stack->array[i - 1])
             return false;
     return true;
 }
