@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:58 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 19:19:15 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 20:20:25 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,8 @@ int	main(int ac, char **av)
 		stacks = fill_stacks(check_args(av));
 		if (!stacks)
 			print_error("\0", NULL);
-
-		ft_printf(" == for debug == \n");
-		debug_a(stacks);
-		swap(stacks->a, "sa");
-		debug_a(stacks);
-		ft_printf(" == for debug == \n");
-		
+		if (!is_sorted(stacks->a))
+			choose_sort(stacks);
 		clean(stacks);
 	}
 	return (0);
