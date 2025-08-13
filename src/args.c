@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 21:44:37 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/13 21:46:37 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	**check_args(char **av)
 	{
 		arr[2] = arr[0];
 		while (++arr[2] < arr[1])
-			if ft_atoi(nums[arr[0]]) == nums[arr[2]]
+			if (ft_atoi(nums[arr[0]]) == ft_atoi(nums[arr[2]]))
 				return (free_stuff(nums, divided_nums));
 		if (ft_strspn(nums[arr[0]], "-0123456789") != ft_strlen(nums[arr[0]]))
 			return (free_stuff(nums, divided_nums));
