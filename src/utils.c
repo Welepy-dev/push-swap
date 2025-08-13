@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcsilv <marcsilv@42.student.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:36:53 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 20:19:25 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 22:10:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,13 @@ bool	is_full(t_stack *stack)
 
 bool	is_empty(t_stack *stack)
 {
-	return (stack->top < -1);
+	return (stack->top < 0);
 }
-
-bool	is_sorted(t_stack *stack)
+bool is_sorted(t_stack *stack)
 {
-	int	i;
-
-	i = 0;
-	while (i < stack->top)
-	{
-		if (stack->array[i] < stack->array[i + 1])
-			return (false);
-		i++;
-	}
-	return (true);
+    for (int i = stack->top; i > 0; i--)
+        if (stack->array[i] > stack->array[i - 1])
+            return false;
+    return true;
 }
 

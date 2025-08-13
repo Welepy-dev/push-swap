@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 21:46:37 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/13 21:55:43 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,10 @@ t_ps	*fill_stacks(char **nums)
 	ps->b->id = 'B';
 	ps->b->top = -1;
 	ps->a->top = -1;
-	i = ps->size;
-	while (--i)
-		ps->a->array[++ps->a->top] = ft_atoi(nums[i]);
-	for (int i = ps->a->top; i >= 0; i--)
-		ft_printf("n%d: %d\n", i, ps->a->array[i]);
-	for (int i = ps->a->top; i >= 0; i--)
-		ft_printf("n%d: %s\n", i, nums[i]);
+	i = ps->size - 1;
+	while (i >= 0)
+		ps->a->array[++ps->a->top] = ft_atoi(nums[i--]);
+
 	free_matrix(nums);
 	return (ps);
 }
