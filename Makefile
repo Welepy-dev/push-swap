@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 12:16:06 by marcsilv          #+#    #+#              #
-#    Updated: 2025/08/13 19:17:22 by marcsilv         ###   ########.fr        #
+#    Updated: 2025/08/13 20:21:51 by marcsilv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ OBJS		=	./src/main.o			\
 				./src/moves/push.o		\
 				./src/moves/rotate.o	\
 				./src/moves/swap.o		\
+				./src/sorting/sorting.o \
 				./src/utils.o
 
 HEADERS		=	./inc/push_swap.h 

@@ -6,7 +6,7 @@
 /*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:56 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 19:18:47 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 20:04:47 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b);
 void	swap(t_stack *stack, char *op);
 void	swap_both(t_stack *stack_a, t_stack *stack_b);
+bool	is_sorted(t_stack *stack);
 
 //moves
 bool	is_full(t_stack *stack);
