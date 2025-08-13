@@ -6,21 +6,29 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 12:16:06 by marcsilv          #+#    #+#              #
-#    Updated: 2025/08/13 17:17:48 by marcsilv         ###   ########.fr        #
+#    Updated: 2025/08/13 19:17:22 by marcsilv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = push_swap
+NAME		=	push_swap
 
-CXX = cc
+CXX			=	cc
 
-LIBFT = ./libft
+LIBFT		=	./libft
 
-LFT = $(LIBFT)/libft.a
+LFT			=	$(LIBFT)/libft.a
 
-CXXFLAGS = -Wall -Wextra -Werror
-OBJS = ./src/main.o ./src/args.o  ./src/moves/swap.c ./src/moves/push.c ./src/utils.c
-HEADERS = ./inc/push_swap.h 
+CXXFLAGS	=	-Wall -Wextra -Werror
+
+OBJS		=	./src/main.o			\
+				./src/args.o			\
+				./src/moves/push.o		\
+				./src/moves/rotate.o	\
+				./src/moves/swap.o		\
+				./src/utils.o
+
+HEADERS		=	./inc/push_swap.h 
+
 all: $(NAME)
 $(OBJS): $(HEADERS)
 $(NAME): $(LFT) $(OBJS)
@@ -40,3 +48,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
