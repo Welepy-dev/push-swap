@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:56 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 11:33:36 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 11:42:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ typedef struct s_ps
 }	t_ps;
 
 t_ps	*fill_stacks(char **nums);
+char	**check_args(char **nums);
 
 #endif // !PUSH_SWAP_HPP
