@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 
 #include "../../libft.h"
-#include <stdlib.h>
 
 void	print_error(char *error_message, void *data)
 {
-	ft_putstr_fd("Error: ", 2);
+	ft_putstr_fd("Error", 2);
 	ft_putendl_fd(error_message, 2);
 	if (data)
 		free(data);
