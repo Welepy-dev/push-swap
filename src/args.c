@@ -6,7 +6,7 @@
 /*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 17:23:45 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 19:06:57 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ char	**check_args(char **av)
 t_ps	*fill_stacks(char **nums)
 {
 	t_ps	*ps;
+	int		i;
 
 	ps = (t_ps *)safe_malloc(sizeof(t_ps));
 	ps->a = (t_stack *)safe_malloc(sizeof(t_stack));
@@ -76,14 +77,17 @@ t_ps	*fill_stacks(char **nums)
 	if (!ps || !nums)
 		return (NULL);
 	ps->size = matrix_len(nums);
+	ps->b->size = ps->size;
+	ps->a->size = ps->size;
 	ps->a->array = ft_calloc(ps->size, sizeof(int));
 	ps->b->array = ft_calloc(ps->size, sizeof(int));
 	ps->a->id = 'A';
 	ps->b->id = 'B';
-	ps->a->top = ps->size - 1;
 	ps->b->top = -1;
-	for (int i = 0; i < ps->size; i++)
-		ps->a->array[i] = ft_atoi(nums[i]);
+	ps->a->top = -1;
+	i = ps->size;
+	while (--i)
+		ps->a->array[++ps->a->top] = ft_atoi(nums[i]);
 	free_matrix(nums);
 	return ps;
 }
