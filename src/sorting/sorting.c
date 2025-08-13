@@ -3,13 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   sorting.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcsilv <marcsilv@42.student.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 20:21:31 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 20:21:39 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 21:16:24 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/push_swap.h"
 
-
+void	choose_sort(t_ps *stacks)
+{
+	if (stacks->a->size < 3)
+		swap(stacks->a, "sa");
+}

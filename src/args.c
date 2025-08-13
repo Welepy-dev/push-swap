@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 19:23:20 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 21:07:08 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	**check_args(char **av)
 		while (++arr[2] < arr[1])
 			if (!ft_strcmp(nums[arr[0]], nums[arr[2]]))
 				return (free_stuff(nums, divided_nums));
-		if (ft_strspn(nums[arr[0]], "0123456789") != ft_strlen(nums[arr[0]]))
+		if (ft_strspn(nums[arr[0]], "-0123456789") != ft_strlen(nums[arr[0]]))
 			return (free_stuff(nums, divided_nums));
 		if (ft_atoi(nums[arr[0]]) > INT_MAX || ft_atoi(nums[arr[0]]) < INT_MIN)
 			return (free_stuff(nums, divided_nums));
@@ -74,7 +74,7 @@ t_ps	*fill_stacks(char **nums)
 	ps = (t_ps *)safe_malloc(sizeof(t_ps));
 	ps->a = (t_stack *)safe_malloc(sizeof(t_stack));
 	ps->b = (t_stack *)safe_malloc(sizeof(t_stack));
-	if (!ps || !nums)
+	if (!ps || !nums || !ps->a || !ps->b)
 		return (NULL);
 	ps->size = matrix_len(nums);
 	ps->b->size = ps->size;
@@ -88,6 +88,10 @@ t_ps	*fill_stacks(char **nums)
 	i = ps->size;
 	while (--i)
 		ps->a->array[++ps->a->top] = ft_atoi(nums[i]);
+	for (int i = ps->a->top; i >= 0; i--)
+		ft_printf("n%d: %d\n", i, ps->a->array[i]);
+	for (int i = ps->a->top; i >= 0; i--)
+		ft_printf("n%d: %s\n", i, nums[i]);
 	free_matrix(nums);
 	return (ps);
 }
