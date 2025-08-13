@@ -12,14 +12,22 @@
 
 #include "../inc/push_swap.h"
 
+void	clean(t_ps *stacks)
+{
+	free(stacks->a.array);
+	free(stacks->b.array);
+	free(stacks);
+}
+
 int	main(int ac, char **av)
 {
-	t_ps	stacks;
+	t_ps	*stacks;
 
 	if (ac != 1)
 	{
-		if (!check_args(av))
+		if (!(stacks = fill_stacks(av)))
 			print_error("\0", NULL);
+		clean(stacks);
 	}
 	return (0);
 }

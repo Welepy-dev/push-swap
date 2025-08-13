@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+#include <stdlib.h>
 
 char	*get_all_args(char **av)
 {
@@ -33,30 +34,46 @@ char	*get_all_args(char **av)
 	return (divided_nums);
 }
 
-bool	check_args(char **av)
+char	**check_args(char **av)
 {
 	char	*divided_nums;
 	char	**nums;
-	int		arr[4];
+	int		arr[3];
 
 	divided_nums = get_all_args(av);
 	nums = ft_split(divided_nums, ' ');
-	ft_bzero((int *)arr, 4);
-	arr[3] = true;
+	ft_bzero((int *)arr, 3);
 	arr[1] = matrix_len(nums);
 	while (arr[0] < arr[1])
 	{
 		if (ft_strspn(nums[arr[0]], "0123456789") != ft_strlen(nums[arr[0]]))
-			arr[3] = false;
+			free_matrix(nums);
 		if (ft_atoi(nums[arr[0]]) > INT_MAX || ft_atoi(nums[arr[0]]) < INT_MIN)
-			arr[3] = false;
+			free_matrix(nums);
 		arr[2] = arr[0];
 		while (++arr[2] < arr[1])
 			if (!ft_strcmp(nums[arr[0]], nums[arr[2]]))
-				arr[3] = false;
+				free_matrix(nums);
 		arr[0]++;
 	}
 	ft_free(&divided_nums);
-	free_matrix(nums);
-	return (arr[3]);
+	return (nums);
 }
+
+t_ps	*fill_stacks(char **nums)
+{
+	t_ps	*ps;
+	int		i;
+
+	i = matrix_len(nums) - 1;
+	ps = (t_ps *)malloc(sizeof(t_ps));
+	ps->a.array = (int *)ft_calloc(i, sizeof(int));
+	ps->b.array = (int *)ft_calloc(i, sizeof(int));
+	/*while (i >= 0)
+	{
+		ps->a.array[i] = ft_atoi(nums[i]);
+		i--;
+	}*/
+	return (ps);
+}
+

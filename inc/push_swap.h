@@ -27,6 +27,6 @@ typedef struct s_ps
 	t_stack	b;
 }	t_ps;
 
-bool	check_args(char **av);
+t_ps	*fill_stacks(char **nums);
 
 #endif // !PUSH_SWAP_HPP
