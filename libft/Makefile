@@ -59,7 +59,6 @@ MATRIX      =   ./custom_functions/matrix/copy_matrix.c      \
 BOOLS       =   ./custom_functions/bools/isneg.c             \
                 ./custom_functions/bools/ispos.c            \
                 ./custom_functions/bools/in_range.c         \
-				./custom_functions/bools/is_string_number.c \
                 ./custom_functions/bools/contains_char.c
 
 LISTS       =   ./lists/ft_lstadd_back.c                    \
