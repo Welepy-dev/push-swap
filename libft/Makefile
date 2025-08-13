@@ -6,7 +6,7 @@
 #    By: mchingi <mchingi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/23 01:14:20 by marcsilv          #+#    #+#              #
-#    Updated: 2025/03/22 18:55:44 by mchingi          ###   ########.fr        #
+#    Updated: 2025/08/12 16:28:04 by marcsilv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,7 @@ MATRIX      =   ./custom_functions/matrix/copy_matrix.c      \
 BOOLS       =   ./custom_functions/bools/isneg.c             \
                 ./custom_functions/bools/ispos.c            \
                 ./custom_functions/bools/in_range.c         \
+				./custom_functions/bools/is_string_number.c \
                 ./custom_functions/bools/contains_char.c
 
 LISTS       =   ./lists/ft_lstadd_back.c                    \
