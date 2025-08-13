@@ -6,7 +6,7 @@
 /*   By: marcsilv <marcsilv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 19:06:57 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 19:23:20 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,5 @@ t_ps	*fill_stacks(char **nums)
 	while (--i)
 		ps->a->array[++ps->a->top] = ft_atoi(nums[i]);
 	free_matrix(nums);
-	return ps;
+	return (ps);
 }
-
