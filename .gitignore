@@ -1,2 +1,4 @@
 rules.txt
-
+*.o
+libft.a
+push_swap
