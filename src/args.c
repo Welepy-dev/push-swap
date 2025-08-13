@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checks.c                                           :+:      :+:    :+:   */
+/*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcsilv <marcsilv@42.student.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/12 19:33:31 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/13 11:46:23 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,10 @@ t_ps	*fill_stacks(char **nums)
 	t_ps	*ps;
 	int		i;
 
-	i = matrix_len(nums) - 1;
+	if (!nums)
+		return (NULL);
+	i = matrix_len(nums);
+	ft_printf("%d\n", i);
 	ps = (t_ps *)malloc(sizeof(t_ps));
 	ps->a.array = (int *)ft_calloc(i, sizeof(int));
 	ps->b.array = (int *)ft_calloc(i, sizeof(int));

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: marcsilv <marcsilv@42.student.fr>          +#+  +:+       +#+         #
+#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 12:16:06 by marcsilv          #+#    #+#              #
-#    Updated: 2025/08/12 19:32:22 by marcsilv         ###   ########.fr        #
+#    Updated: 2025/08/13 11:40:53 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBFT = ./libft
 LFT = $(LIBFT)/libft.a
 
 CXXFLAGS = -Wall -Wextra -Werror
-OBJS = ./src/main.o ./src/checks.o
+OBJS = ./src/main.o ./src/args.o
 HEADERS = ./inc/push_swap.h 
 all: $(NAME)
 $(OBJS): $(HEADERS)
