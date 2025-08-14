@@ -46,7 +46,8 @@ int	main(int ac, char **av)
 			print_error("\0", NULL);
 		if (!is_sorted(stacks->a))
 			choose_sort(stacks);
-		debug_a(stacks);
+		//debug_a(stacks);
+		//debug_b(stacks);
 		clean(stacks);
 	}
 	return (0);
