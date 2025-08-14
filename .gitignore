@@ -1,4 +1,6 @@
-rules.txt
+*.txt
 *.o
 libft.a
 push_swap
+checker_linux
+
