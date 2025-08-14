@@ -54,7 +54,6 @@ int	smallest_stack_number_index(t_stack *stack)
 	return (smallest_number_index);
 }
 
-//void	push_smallest
 //void	push_highest
 
 void	tiny_sort(t_stack *stack)
@@ -70,12 +69,42 @@ void	tiny_sort(t_stack *stack)
 		swap(stack, "sa");
 }
 
+/*
+4–5 numbers
+
+	Use a small-stack algorithm:
+
+	Push the smallest (and second smallest if needed) to stack_b using pb.
+
+	Sort the 3 remaining in stack_a using the 3-number solution.
+
+	Push back from stack_b to stack_a in correct order.
+	This usually takes 8–12 moves.	
+
+*/
+void	push_smallest(t_stack *src, t_stack *dst, char *op)
+{
+	int	smallest_number_index;
+
+	smallest_number_index = smallest_stack_number_index(src);
+	while (smallest_number_index != src->top)
+	{
+		//if (smallest_number_index >= src->top / 2)
+			rotate(src, "ra");
+		//else
+		//	reverse_rotate(src, "rra");
+		smallest_number_index = smallest_stack_number_index(src);
+	}
+	push(src, dst, op);
+}
+
 void	small_sort(t_ps *stacks)
 {
-	int	i;
-
-	i = 0;
-	
+	while (stacks->a->top > 2)
+		push_smallest(stacks->a, stacks->b, "pb");
+	tiny_sort(stacks->a);
+	while (!is_empty(stacks->b))
+		push(stacks->b, stacks->a, "pa");
 }
 
 void	choose_sort(t_ps *stacks)
