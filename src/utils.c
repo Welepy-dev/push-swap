@@ -21,12 +21,17 @@ bool	is_empty(t_stack *stack)
 {
 	return (stack->top < 0);
 }
-bool is_sorted(t_stack *stack)
+
+bool	is_sorted(t_stack *stack)
 {
-    for (int i = stack->top; i > 0; i--)
-        if (stack->array[i] > stack->array[i - 1])
-            return false;
-    return true;
+	int	i;
+
+	i = stack->top;
+	while (i > 0)
+	{
+		if (stack->array[i] > stack->array[i - 1])
+			return (false);
+		i--;
+	}
+	return (true);
 }
-
-
