@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 22:16:10 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/15 23:16:32 by codespace        ###   ########.fr       */
+/*   Created: 2025/08/13 18:36:53 by marcsilv          #+#    #+#             */
+/*   Updated: 2025/08/13 22:59:50 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/checker.h"
+#include "../inc/push_swap.h"
 
-void	clean(t_stack *stack)
+bool	is_full(t_stack *stack)
 {
-	free(stack->array);
-	free(stack);
+	return (stack->top == stack->size - 1);
 }
 
-void	debug_a(t_stack *a)
+bool	is_empty(t_stack *stack)
 {
-	ft_printf("STACK A\n");
-	for (int i = a->top; i >= 0; i--)
-		ft_printf("index %d: %d\n", i, a->array[i]);
+	return (stack->top < 0);
 }
 
-int	main(int ac, char **av)
+bool	is_sorted(t_stack *stack)
 {
-	t_stack	*stack_a;
+	int	i;
 
-	stack_a = fill_stack(check_args(av));
-	debug_a(stack_a);
-	if (ac != 1)
+	i = stack->top;
+	while (i > 0)
 	{
-
+		if (stack->array[i] > stack->array[i - 1])
+			return (false);
+		i--;
 	}
-	clean (stack_a);
-	return (0);
+	return (true);
 }

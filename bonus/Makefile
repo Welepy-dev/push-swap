@@ -6,15 +6,15 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 12:16:06 by marcsilv          #+#    #+#              #
-#    Updated: 2025/08/15 23:06:08 by codespace        ###   ########.fr        #
+#    Updated: 2025/08/15 23:29:29 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	checker	
+NAME		=	checker
 
 CXX			=	cc
 
-LIBFT		=	../libft
+LIBFT		=	./libft
 
 LFT			=	$(LIBFT)/libft.a
 
