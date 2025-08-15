@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 12:16:06 by marcsilv          #+#    #+#              #
-#    Updated: 2025/08/15 22:38:09 by marcsilv         ###   ########.fr        #
+#    Updated: 2025/08/15 23:06:08 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CXXFLAGS	=	-Wall -Wextra -Werror
 OBJS		=	./src/checker.o			\
 				./src/args.o
 
-HEADERS		=	./inc/push_swap.h 
+HEADERS		=	./inc/checker.h 
 
 all: $(NAME)
 $(OBJS): $(HEADERS)

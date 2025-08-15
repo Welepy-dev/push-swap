@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcsilv <marcsilv@42.student.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 22:16:10 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/15 22:34:24 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/15 23:16:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/checker.h"
+
+void	clean(t_stack *stack)
+{
+	free(stack->array);
+	free(stack);
+}
 
 void	debug_a(t_stack *a)
 {
@@ -29,5 +35,6 @@ int	main(int ac, char **av)
 	{
 
 	}
+	clean (stack_a);
 	return (0);
 }
