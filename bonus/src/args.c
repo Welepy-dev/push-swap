@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   args.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: marcsilv <marcsilv@42.student.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/15 22:24:55 by marcsilv         ###   ########.fr       */
+/*   Created: 2025/08/15 22:23:17 by marcsilv          #+#    #+#             */
+/*   Updated: 2025/08/15 22:36:08 by marcsilv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
-#in
+#include "../inc/checker.h"
 
 char	*get_all_args(char **av)
 {
@@ -67,30 +66,24 @@ char	**check_args(char **av)
 	return (nums);
 }
 
-t_ps	*fill_stacks(char **nums)
+t_stack	*fill_stack(char **nums)
 {
-	t_ps	*ps;
+	t_stack	*a;
 	int		i;
 
 	if (!nums)
 		return (NULL);
-	ps = (t_ps *)safe_malloc(sizeof(t_ps));
-	ps->a = (t_stack *)safe_malloc(sizeof(t_stack));
-	ps->b = (t_stack *)safe_malloc(sizeof(t_stack));
-	if (!ps || !ps->a || !ps->b)
+	a = (t_stack *)safe_malloc(sizeof(t_stack));
+	if (!a)
 		return (NULL);
-	ps->size = matrix_len(nums);
-	ps->b->size = ps->size;
-	ps->a->size = ps->size;
-	ps->a->array = ft_calloc(ps->size, sizeof(int));
-	ps->b->array = ft_calloc(ps->size, sizeof(int));
-	ps->a->id = 'A';
-	ps->b->id = 'B';
-	ps->b->top = -1;
-	ps->a->top = -1;
-	i = ps->size - 1;
+	int size = matrix_len(nums);
+	a->size = size;
+	a->array = ft_calloc(size, sizeof(int));
+	a->id = 'A';
+	a->top = -1;
+	i = size - 1;
 	while (i >= 0)
-		ps->a->array[++ps->a->top] = ft_atoi(nums[i--]);
+		a->array[++a->top] = ft_atoi(nums[i--]);
 	free_matrix(nums);
-	return (ps);
+	return (a);
 }
