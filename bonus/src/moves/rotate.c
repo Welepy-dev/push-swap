@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcsilv <marcsilv@42.student.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:13:11 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 19:14:46 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/16 11:35:54 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../inc/checker.h"
 
 void	rotate(t_stack *stack, char *op)
 {

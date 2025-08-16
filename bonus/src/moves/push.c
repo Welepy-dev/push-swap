@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marcsilv <marcsilv@42.student.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:22:08 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 18:38:20 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/16 11:34:58 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/push_swap.h"
+#include "../../inc/checker.h"
 
 void	push(t_stack *src, t_stack *dst, char *op)
 {
