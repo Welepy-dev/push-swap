@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/12 12:16:06 by marcsilv          #+#    #+#              #
-#    Updated: 2025/08/16 11:34:31 by codespace        ###   ########.fr        #
+#    Updated: 2025/08/16 22:53:35 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,10 +21,11 @@ LFT			=	$(LIBFT)/libft.a
 CXXFLAGS	=	-Wall -Wextra -Werror
 
 OBJS		=	./src/checker.o				\
-				./src/args.o				\
+				./src/utils.o			\
 				./src/moves/push.o			\
 				./src/moves/rotate.o		\
-				./src/moves/swap.o
+				./src/moves/swap.o			\
+				./src/args.o				
 
 HEADERS		=	./inc/checker.h 
 

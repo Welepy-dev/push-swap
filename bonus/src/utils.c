@@ -6,11 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:36:53 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/13 22:59:50 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/16 11:38:31 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/checker.h"
 
 bool	is_full(t_stack *stack)
 {

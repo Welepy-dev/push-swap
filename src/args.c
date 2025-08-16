@@ -6,12 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/15 22:24:55 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/16 22:51:03 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#in
 
 char	*get_all_args(char **av)
 {

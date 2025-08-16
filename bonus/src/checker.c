@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:58 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/15 22:32:38 by marcsilv         ###   ########.fr       */
+/*   Updated: 2025/08/16 23:15:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/push_swap.h"
+#include "../inc/checker.h"
 
 void	clean(t_ps *stacks)
 {
@@ -35,19 +35,56 @@ void	debug_a(t_ps *stacks)
 		ft_printf("index %d: %d\n", i, stacks->a->array[i]);
 }
 
+void	move(t_ps *stack, char *command)
+{
+	if (ft_strcmp(command, "pa") == 0)
+		push(stack->b, stack->a, "\0");
+	else if (ft_strcmp(command, "pb") == 0)
+		push(stack->a, stack->b, "\0");
+	else if (ft_strcmp(command, "ra") == 0)
+		rotate(stack->a, "\0");
+	else if (ft_strcmp(command, "rb") == 0)
+		rotate(stack->b, "\0");
+	else if (ft_strcmp(command, "rra") == 0)
+		reverse_rotate(stack->a, "\0");
+	else if (ft_strcmp(command, "rrb") == 0)
+		reverse_rotate(stack->b, "\0");
+	else if (ft_strcmp(command, "sa") == 0)
+		swap(stack->a, "\0");
+	else if (ft_strcmp(command, "sb") == 0)
+		swap(stack->b, "\0");
+	else
+		print_error("Error\n", NULL);
+}
+
 int	main(int ac, char **av)
 {
 	t_ps	*stacks;
+	char	buffer[128];
+	ssize_t	bytesRead;
 
 	if (ac != 1)
 	{
 		stacks = fill_stacks(check_args(av));
 		if (!stacks)
 			print_error("\0", NULL);
-		if (!is_sorted(stacks->a))
-			choose_sort(stacks);
-		debug_a(stacks);
-		debug_b(stacks);
+		while (1)
+		{
+			bytesRead = read(0, buffer, sizeof(buffer) - 1);
+			if (bytesRead < 0)
+				print_error("Error reading input", NULL);
+			else if (bytesRead == 0)
+			{
+				printf("End of input.\n");
+				break;
+			}
+			buffer[bytesRead] = '\0';
+			printf("Read: %s\n", buffer);
+		}
+		if (is_sorted(stacks->a) && stacks->b->top == -1)
+			ft_printf("OK\n");
+		else
+			ft_printf("KO\n");
 		clean(stacks);
 	}
 	return (0);
