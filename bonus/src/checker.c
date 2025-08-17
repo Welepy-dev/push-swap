@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:58 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/17 10:51:00 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/17 11:04:22 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,22 @@ void	move(t_ps *stack, char *command)
 int	main(int ac, char **av)
 {
 	t_ps	*stacks;
-	char	buffer[128];
-	ssize_t	bytesRead;
+	char	*line;
+	ssize_t	len;
 
 	if (ac != 1)
 	{
 		stacks = fill_stacks(check_args(av));
 		if (!stacks)
 			print_error("\0", NULL);
-		while (1)
+		while ((line = get_next_line(0)) != NULL)
 		{
-			bytesRead = read(0, buffer, sizeof(buffer) - 1);
-			if (bytesRead < 0)
-				print_error("Error reading input", NULL);
-			buffer[bytesRead] = '\0';
-			char *nl = ft_strchr(buffer, '\n');
-			if (nl)
-				*nl = '\0';
-			move(stacks, buffer);
+			len = ft_strlen(line);
+			if (len > 0 && line[len - 1] == '\n')
+				line[len - 1] = '\0';
+			if (*line != '\0')
+				move(stacks, line);
+			free(line);
 		}
 		if (is_sorted(stacks->a) && is_empty(stacks->b))
 			ft_printf("OK\n");
