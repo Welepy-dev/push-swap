@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:58 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/17 11:04:22 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/17 11:20:35 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,6 @@ void	clean(t_ps *stacks)
 	free(stacks->a);
 	free(stacks->b);
 	free(stacks);
-}
-
-void	debug_b(t_ps *stacks)
-{
-	ft_printf("STACK B\n");
-	for (int i = stacks->b->top; i >= 0; i--)
-		ft_printf("%d\n", stacks->b->array[i]);
-}
-
-void	debug_a(t_ps *stacks)
-{
-	ft_printf("STACK A\n");
-	for (int i = stacks->a->top; i >= 0; i--)
-		ft_printf("index %d: %d\n", i, stacks->a->array[i]);
 }
 
 void	move(t_ps *stack, char *command)
@@ -60,7 +46,15 @@ void	move(t_ps *stack, char *command)
 	else if (ft_strcmp(command, "rrr") == 0)
 		reverse_rotate_both(stack->a, stack->b, '\0');
 	else
-		print_error(" ", NULL);
+		ft_dprintf(2, "Error\n");
+}
+
+void	final_check(t_ps *stacks)
+{
+	if (is_sorted(stacks->a) && is_empty(stacks->b))
+			ft_printf("OK\n");
+	else
+		ft_printf("KO\n");
 }
 
 int	main(int ac, char **av)
@@ -74,7 +68,8 @@ int	main(int ac, char **av)
 		stacks = fill_stacks(check_args(av));
 		if (!stacks)
 			print_error("\0", NULL);
-		while ((line = get_next_line(0)) != NULL)
+		line = get_next_line(0);
+		while (line)
 		{
 			len = ft_strlen(line);
 			if (len > 0 && line[len - 1] == '\n')
@@ -82,12 +77,11 @@ int	main(int ac, char **av)
 			if (*line != '\0')
 				move(stacks, line);
 			free(line);
+			line = get_next_line(0);
 		}
-		if (is_sorted(stacks->a) && is_empty(stacks->b))
-			ft_printf("OK\n");
-		else
-			ft_printf("KO\n");
-		clean(stacks);
+		free(line);
+		final_check(stacks);
+		clean(stacks);		//this is almost done, I just need to know how to close when is needed and clean everything in case if errors
 	}
 	return (0);
 }
