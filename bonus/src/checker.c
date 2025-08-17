@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:58 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/16 23:15:27 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/17 10:51:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,14 @@ void	move(t_ps *stack, char *command)
 		swap(stack->a, "\0");
 	else if (ft_strcmp(command, "sb") == 0)
 		swap(stack->b, "\0");
+	else if (ft_strcmp(command, "ss") == 0)
+		swap_both(stack->a, stack->b, '\0');
+	else if (ft_strcmp(command, "rr") == 0)
+		rotate_both(stack->a, stack->b, '\0');
+	else if (ft_strcmp(command, "rrr") == 0)
+		reverse_rotate_both(stack->a, stack->b, '\0');
 	else
-		print_error("Error\n", NULL);
+		print_error(" ", NULL);
 }
 
 int	main(int ac, char **av)
@@ -73,15 +79,13 @@ int	main(int ac, char **av)
 			bytesRead = read(0, buffer, sizeof(buffer) - 1);
 			if (bytesRead < 0)
 				print_error("Error reading input", NULL);
-			else if (bytesRead == 0)
-			{
-				printf("End of input.\n");
-				break;
-			}
 			buffer[bytesRead] = '\0';
-			printf("Read: %s\n", buffer);
+			char *nl = ft_strchr(buffer, '\n');
+			if (nl)
+				*nl = '\0';
+			move(stacks, buffer);
 		}
-		if (is_sorted(stacks->a) && stacks->b->top == -1)
+		if (is_sorted(stacks->a) && is_empty(stacks->b))
 			ft_printf("OK\n");
 		else
 			ft_printf("KO\n");

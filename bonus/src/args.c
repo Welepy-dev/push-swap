@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 19:33:27 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/16 23:18:25 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/17 10:52:53 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ t_ps	*fill_stacks(char **nums)
 	int		i;
 
 	if (!nums)
-		print_error("Error\n", NULL);
+		print_error(" ", NULL);
 	ps = (t_ps *)safe_malloc(sizeof(t_ps));
 	ps->a = (t_stack *)safe_malloc(sizeof(t_stack));
 	ps->b = (t_stack *)safe_malloc(sizeof(t_stack));
 	if (!ps || !ps->a || !ps->b)
-		print_error("Error\n", NULL);
+		print_error(" ", NULL);
 	ps->size = matrix_len(nums);
 	ps->b->size = ps->size;
 	ps->a->size = ps->size;

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:17:28 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/16 11:35:59 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/17 10:45:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	swap(t_stack *stack, char *op)
 		ft_printf("%s\n", op);
 }
 
-void	swap_both(t_stack *stack_a, t_stack *stack_b)
+void	swap_both(t_stack *stack_a, t_stack *stack_b, char op)
 {
 	swap(stack_a, "\0");
 	swap(stack_b, "\0");

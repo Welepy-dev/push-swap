@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 12:18:56 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/15 23:30:03 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/17 10:45:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ void	swap(t_stack *stack, char *op);
 void	rotate(t_stack *stack, char *op);
 int		reverse_rotate(t_stack *stack, char *op);
 void	push(t_stack *src, t_stack *dst, char *op);
-void	swap_both(t_stack *stack_a, t_stack *stack_b);
-void	rotate_both(t_stack *stack_a, t_stack *stack_b);
-void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b);
+void	swap_both(t_stack *stack_a, t_stack *stack_b, char op);
+void	rotate_both(t_stack *stack_a, t_stack *stack_b, char op);
+void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b, char op);
 
 //bools
 bool	is_sorted(t_stack *stack);

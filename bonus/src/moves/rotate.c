@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:13:11 by marcsilv          #+#    #+#             */
-/*   Updated: 2025/08/16 11:35:54 by codespace        ###   ########.fr       */
+/*   Updated: 2025/08/17 10:44:50 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,18 @@ int	reverse_rotate(t_stack *stack, char *op)
 	return (1);
 }
 
-void	rotate_both(t_stack *stack_a, t_stack *stack_b)
+void	rotate_both(t_stack *stack_a, t_stack *stack_b, char op)
 {
 	rotate(stack_a, "\0");
 	rotate(stack_b, "\0");
-	ft_printf("rr\n");
+	if (op)
+		ft_printf("rr\n");
 }
 
-void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b)
+void	reverse_rotate_both(t_stack *stack_a, t_stack *stack_b, char op)
 {
 	reverse_rotate(stack_a, "\0");
 	reverse_rotate(stack_b, "\0");
-	ft_printf("rrr\n");
+	if (op)
+		ft_printf("rrr\n");
 }
